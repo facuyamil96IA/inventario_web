@@ -73,6 +73,7 @@
             <th>Producto</th>
             <th>Cuotas pagadas / Totales</th>
             <th>Estado deuda</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -91,10 +92,13 @@
                 <span class="badge bg-danger">Atrasado</span>
               {% endif %}
             </td>
+            <td>
+              <a href="/editar_cliente/{{ c.id }}" class="btn btn-sm btn-warning">Editar</a>
+            </td>
           </tr>
           {% else %}
           <tr>
-            <td colspan="7" class="text-center">No hay clientes registrados.</td>
+            <td colspan="8" class="text-center">No hay clientes registrados.</td>
           </tr>
           {% endfor %}
         </tbody>
