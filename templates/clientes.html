@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+</head>
+<body>
+    <h1>Lista de Clientes</h1>
+    <form method="POST" action="/agregar_cliente">
+        <input name="fecha_compra" type="date" required placeholder="Fecha de compra"><br>
+        <input name="nombre" type="text" placeholder="Nombre del cliente" required><br>
+        <input name="celular" type="text" placeholder="Celular"><br>
+        <input name="domicilio" type="text" placeholder="Domicilio"><br>
+        <input name="producto" type="text" placeholder="Producto que compró"><br>
+        <input name="cuotas_totales" type="number" placeholder="N° cuotas totales"><br>
+        <input name="cuotas_pagadas" type="number" placeholder="Cuotas pagadas"><br>
+        <select name="estado_deuda">
+            <option value="al_dia">Al día</option>
+            <option value="atrasado">Atrasado</option>
+        </select><br>
+        <button type="submit">Agregar cliente</button>
+    </form>
+
+    <h2>Clientes registrados</h2>
+    <ul>
+        {% for c in clientes %}
+            <li>
+                {{ c.nombre }} | {{ c.producto }} | {{ c.estado_deuda }} ({{ c.cuotas_pagadas }}/{{ c.cuotas_totales }})
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Volver</a>
+</body>
+</html>
